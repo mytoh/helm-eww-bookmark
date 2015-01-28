@@ -44,18 +44,18 @@
                         "s"
                         "  "
                         "%s")
-       (propertize (plist-get b :title)
+       (propertize (cl-getf b :title)
                    'face 'helm-eww-bookmark-title)
-       (propertize (plist-get b :url)
+       (propertize (cl-getf b :url)
                    'face 'helm-eww-bookmark-url))
       b))
    eww-bookmarks))
 
 (cl-defun helm-eww-bookmark-action-browse (candidate)
-  (eww-browse-url (plist-get candidate :url)))
+  (eww-browse-url (cl-getf candidate :url)))
 
 (cl-defun helm-eww-bookmark-action-copy-url (candidate)
-  (cl-letf ((url (plist-get candidate :url)))
+  (cl-letf ((url (cl-getf candidate :url)))
     (kill-new url)
     (message "copied %s" url)))
 
