@@ -54,12 +54,18 @@
 (cl-defun helm-eww-bookmark-action-browse (candidate)
   (eww-browse-url (plist-get candidate :url)))
 
+(cl-defun helm-eww-bookmark-action-copy-url (candidate)
+  (cl-letf ((url (plist-get candidate :url)))
+    (kill-new url)
+    (message "copied %s" url)))
+
 (defclass helm-eww-bookmark-source (helm-source-sync)
   ((init :initform helm-eww-bookmark-init)
    (candidates :initform helm-eww-bookmark-candidates)
    (action :initform
            (helm-make-actions
-            "Browse bookmark" 'helm-eww-bookmark-action-browse))))
+            "Browse bookmark" 'helm-eww-bookmark-action-browse
+            "Copy url" 'helm-eww-bookmark-action-copy-url))))
 
 (defvar helm-source-eww-bookmark
   (helm-make-source "Bookmark"
