@@ -58,12 +58,12 @@
     (message "copied %s" url)))
 
 (defclass helm-eww-bookmark-source (helm-source-sync)
-  ((init :initform helm-eww-bookmark-init)
-   (candidates :initform helm-eww-bookmark-candidates)
+  ((init :initform #'helm-eww-bookmark-init)
+   (candidates :initform #'helm-eww-bookmark-candidates)
    (action :initform
            (helm-make-actions
-            "Browse bookmark" 'helm-eww-bookmark-action-browse
-            "Copy url" 'helm-eww-bookmark-action-copy-url))))
+            "Browse bookmark" #'helm-eww-bookmark-action-browse
+            "Copy url" #'helm-eww-bookmark-action-copy-url))))
 
 (defvar helm-source-eww-bookmark
   (helm-make-source "Bookmark"
