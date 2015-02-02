@@ -7,13 +7,13 @@
 (require 'seq)
 
 (defface helm-eww-bookmark-title
-    '((t :inherit font-lock-preprocessor-face))
+  '((t :inherit font-lock-preprocessor-face))
   "face for bookmark title"
   :group 'eww
   :group 'helm)
 
 (defface helm-eww-bookmark-url
-    '((t :inherit font-lock-builtin-face))
+  '((t :inherit font-lock-builtin-face))
   "face for bookmark title"
   :group 'eww
   :group 'helm)
@@ -22,8 +22,6 @@
   40
   "Max width for bookmark title"
   :type 'integer)
-
-(setq helm-eww-bookmark-title-width 40)
 
 (cl-defun helm-eww-bookmark-init ()
   (eww-read-bookmarks)
