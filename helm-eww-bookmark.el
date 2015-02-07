@@ -59,7 +59,7 @@
 
 (defclass helm-eww-bookmark-source (helm-source-sync)
   ((init :initform #'helm-eww-bookmark-init)
-   (candidates :initform #'helm-eww-bookmark-candidates)
+   (candidates :initform 'helm-eww-bookmark-candidates)
    (action :initform
            (helm-make-actions
             "Browse bookmark" #'helm-eww-bookmark-action-browse
