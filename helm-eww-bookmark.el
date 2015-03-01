@@ -2,8 +2,7 @@
 
 ;;; Code:
 
-(eval-when-compile
-  (require 'cl-lib))
+(require 'cl-lib)
 (require 'seq)
 
 (defface helm-eww-bookmark-title
